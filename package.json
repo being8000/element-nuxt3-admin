@@ -1,0 +1,33 @@
+{
+  "name": "nuxt-app",
+  "private": true,
+  "scripts": {
+    "build": "nuxt build --dotenv .env",
+    "build:sit": "nuxt build --dotenv .env.sit",
+    "build:uat": "nuxt build --dotenv .env.uat",
+    "build:prod": "nuxt build  --dotenv .env.production",
+    "dev": "nuxt dev",
+    "generate": "nuxt generate",
+    "preview": "nuxt preview",
+    "postinstall": "nuxt prepare"
+  },
+  "devDependencies": {
+    "@element-plus/nuxt": "^1.0.5",
+    "@nuxt/devtools": "latest",
+    "@nuxt/types": "^2.17.0",
+    "@nuxtjs/color-mode": "^3.3.0",
+    "@nuxtjs/tailwindcss": "^6.8.0",
+    "@sidebase/nuxt-auth": "^0.6.0-beta.3",
+    "@types/node": "^18",
+    "element-plus": "^2.3.7",
+    "nuxt": "^3.6.1",
+    "nuxt-icon": "^0.4.1"
+  },
+  "dependencies": {
+    "eslint": "^8.43.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-prettier": "^4.2.1",
+    "prettier": "^2.8.8",
+    "sass": "^1.63.6"
+  }
+}

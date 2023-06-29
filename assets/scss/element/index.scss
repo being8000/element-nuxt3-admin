@@ -1,0 +1,115 @@
+$-colors: (
+  'primary': (
+    'base': #127de9,
+  ),
+  'success': (
+    'base': #6ddd35,
+  ),
+  'warning': (
+    'base': #e99b26,
+  ),
+  'danger': (
+    'base': #f04a4a,
+  ),
+  'error': (
+    'base': #c51a1a,
+  ),
+  'info': (
+    'base': #575f6d,
+  ),
+);
+
+@forward 'element-plus/theme-chalk/src/common/var.scss' with (
+  $colors: $-colors
+);
+
+@use './dark.scss';
+:root{
+  //Sidebar
+  --sidebar-el-icon-size: 20px;
+  --sidebar-logo-background: #F2F2F2;
+  --sidebar-logo-color: #ff9901;
+  --sidebar-logo-width: var(--side-bar-width);
+  --sidebar-logo-height: 95.8px;
+  --logout-height: 50px;
+  --logout-width: var(--side-bar-width);
+  --sidebar-logo-title-color: #fff;
+  --side-bar-width: 240px;
+  --side-bar-border-right-color: '#ddd';
+
+      /*element-plus section */
+  --el-menu-active-color: var(--el-color-primary);
+  --el-menu-text-color: #f2f2f2;
+  --el-menu-hover-text-color: var(--el-color-primary);
+  --el-menu-bg-color: var(--el-color-primary);
+  --el-menu-hover-bg-color: rgba(208, 159, 230, .5);
+  --el-menu-item-height: 38px;
+  --el-menu-border-color: none;
+  --el-menu-base-level-padding: 12px;
+  --el-menu-level-padding: 12px;
+  --el-input-border-color: '';
+
+
+  .el-table{
+    --el-table-header-bg-color: var(--el-color-primary-light-3);
+    --el-table-header-text-color: #e2e8f0;
+  }
+
+}
+html.dark{
+  --el-menu-bg-color: #0f172a;
+  // el-bg
+  --el-bg-color-overlay: #0b1325;
+  --el-fill-color-lighter: #0b1325;
+  --el-bg-color: #0b1325;
+
+  // el-pagenation
+  --el-pagination-button-bg-color: '#37b7f0';
+  .el-table{
+    --el-table-header-bg-color: #0f172a;
+    --el-table-header-text-color: #e2e8f0;
+  }
+}
+
+.isCollapse {
+  --sidebar-logo-height: 46.34px;
+}
+.el-menu-item, .el-sub-menu{
+  font-weight: 500;
+  user-select: none;
+  &:hover{
+    border-radius: 8px;
+  }
+}
+.el-sub-menu[aria-expanded="true"]{
+  .el-sub-menu__title{
+    background-color: rgba(208, 159, 230, .5);
+    border-radius: 8px;
+  }
+}
+.el-menu-item.is-active{
+  background-color: #dcc9a3;
+  color: var(--el-color-primary);
+  border-radius: 8px;
+}
+
+.nuxt-icon svg{
+  height: 23px;
+  width: 23px;
+}
+
+
+.search-form{
+ &.el-form.el-form--label-top {
+  .el-form-item {
+    margin-bottom: 5px;
+    .el-form-item__label{
+      margin-bottom: 0px;
+      font-size: 12px;
+      font-weight: 500;
+    }
+    // box-shadow: 0 0 0 2px var(--el-input-border-color, var(--el-border-color)) inset;
+  }
+ }
+}
+
