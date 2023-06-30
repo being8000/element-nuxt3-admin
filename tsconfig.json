@@ -2,6 +2,7 @@
   // https://nuxt.com/docs/guide/concepts/typescript
   "extends": "./.nuxt/tsconfig.json",
   "compilerOptions": {
+    "moduleResolution": "node",
     "strict": true,
     "noImplicitAny": true,
     "noImplicitThis": true,
@@ -11,6 +12,7 @@
     "strictPropertyInitialization": true,
     "types": [
       "@nuxt/types",
+      "@types/mockjs"
     ]
   }
 }

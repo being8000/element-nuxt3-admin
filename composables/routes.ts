@@ -9,23 +9,30 @@ interface CustomRoute {
 }
 const defaultRoutes: CustomRoute[] = [
   {
-    path: "/dashboard",
+    path: "/",
     meta: {
       title: "Dashboard",
     },
     icon: "DataAnalysis",
   },
   {
-    path: "/form",
+    path: "/richtext",
     meta: {
-      title: "Form Example",
+      title: "Rich Text",
     },
     icon: "Tickets",
   },
   {
-    path: "/table",
+    path: "/crud",
     meta: {
-      title: "Table Example",
+      title: "Table CRUD",
+    },
+    icon: "Tickets",
+  },
+  {
+    path: "/table-column",
+    meta: {
+      title: "Table Columns Style",
     },
     icon: "Tickets",
   },
