@@ -69,7 +69,7 @@
           <el-scrollbar :style="{ height: 'calc(100vh - 100px)' }">
             <article
               id="markdown-content"
-              class="dark:bg-slate-900 prose prose-stone shadow-lg p-4 w-full prose-img:rounded-xl dark:prose-invert prose-a:text-blue-600 prose-pre:p-0 prose-h1:my-1 prose-h2:my-1 prose-h3:my-1 max-w-full"
+              class="dark:bg-slate-900 prose prose-stone shadow-lg p-4 w-full prose-img:rounded-xl dark:prose-invert prose-a:text-blue-600 prose-pre:p-0 prose-h1:my-1 prose-h2:my-1 prose-h3:my-1 max-w-full prose-code:before:contents prose-code:after:contents prose-code:bg-red-100 prose-code:text-red-600 prose-code:py-1 prose-code:px-2 prose-code:rounded-lg"
             ></article>
           </el-scrollbar>
         </el-col>
@@ -111,7 +111,7 @@ const eventHandlders = EditorView.domEventHandlers({
 })
 const extensions = [keymaps, markdown(), oneDark, eventHandlders]
 const code = ref(
-  `# Marked in browser\n\nRendered by **marked**.\n\n` +
+  `# Marked in browser\n## H2 \n### H3\n\nRendered by **marked**.\n\n` +
     '```javascript ' +
     '\n' +
     'let num = 1; ' +
@@ -123,7 +123,11 @@ const code = ref(
     '} ' +
     '\n' +
     '``` ' +
-    '\n'
+    '\n' +
+    '`Tag Name`\n' +
+    '| Header | Header2 | Header3 | \n' +
+    '|--|--|--|  \n' +
+    '| xxx | xxx2 |xxx3 | \n'
 )
 
 // Codemirror EditorView instance ref
