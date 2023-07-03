@@ -28,6 +28,7 @@ export default defineNuxtConfig({
     "nuxt-icon",
   ],
   auth: {
+    auth: { origin: "https://element-nuxt3-admin.vercel.app" },
     provider: {
       type: "authjs",
     },
