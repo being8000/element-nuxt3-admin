@@ -14,7 +14,7 @@
     <div class="space-y-2">
       <SidebarItem
         v-for="child in item.children"
-        :key="child.path"
+        :key="child.path + '_' + level"
         :is-nest="true"
         :item="child"
         :base-path="child.path"

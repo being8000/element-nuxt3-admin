@@ -67,6 +67,9 @@
         <el-radio label="Venue" />
       </el-radio-group>
     </el-form-item>
+    <el-form-item label="Email" prop="email">
+      <el-input v-model="ruleForm.email" type="text" />
+    </el-form-item>
     <el-form-item label="Activity form" prop="desc">
       <el-input v-model="ruleForm.desc" type="textarea" />
     </el-form-item>
@@ -92,6 +95,7 @@ interface RuleForm {
   type: string[]
   resource: string
   desc: string
+  email: string
 }
 
 const formSize = ref('default')
@@ -105,10 +109,22 @@ const ruleForm = reactive<RuleForm>({
   delivery: false,
   type: [],
   resource: '',
-  desc: ''
+  desc: '',
+  email: ''
 })
-
+/**
+ * Usage
+ * https://github.com/yiminghe/async-validator
+ */
 const rules = reactive<FormRules<RuleForm>>({
+  email: [
+    {
+      type: 'email',
+      required: true,
+      message: 'Please input a correct email formate',
+      trigger: 'blur'
+    }
+  ],
   name: [
     { required: true, message: 'Please input Activity name', trigger: 'blur' },
     { min: 3, max: 5, message: 'Length should be 3 to 5', trigger: 'blur' }

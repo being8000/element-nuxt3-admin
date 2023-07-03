@@ -39,12 +39,12 @@
             range-separator="-"
             start-placeholder="Start Date"
             end-placeholder="End Date"
-            @change="dateTimePacking"
+            @change="changeDate"
           />
         </el-form-item>
       </el-form>
       <!--查询按钮-->
-      <el-button type="primary" @click="searchBtnClick">查询</el-button>
+      <el-button type="primary" @click="searchBtnClick">Search</el-button>
     </div>
     <!--表格和分页-->
     <EleTableSticker>
@@ -94,16 +94,11 @@
         >
           <template #default="{ row }">
             <el-button-group>
-              <el-button
-                size="small"
-                type="primary"
-                @click="tableEditClick(row)"
+              <el-button size="small" type="primary" @click="edit(row)"
                 >Edit</el-button
               >
-              <el-button size="small" @click="tableDetailClick(row)"
-                >Details</el-button
-              >
-              <el-button size="small" type="danger" @click="tableDelClick(row)"
+              <el-button size="small" @click="detail(row)">Details</el-button>
+              <el-button size="small" type="danger" @click="dedelte(row)"
                 >Delete</el-button
               >
             </el-button-group>
@@ -121,18 +116,11 @@
           :background="true"
           layout="total, sizes, prev, pager, next, jumper"
           :total="data?.total || 0"
-          @size-change="refresh"
-          @current-change="refresh"
+          @size-change="() => refresh"
+          @current-change="() => refresh"
         />
       </el-card>
     </el-affix>
-
-    <FormCrud
-      v-if="showFrom"
-      ref="refCRUDForm"
-      @hideComp="hideComp"
-      @selectPageReq="refresh"
-    />
   </div>
 </template>
 
@@ -143,12 +131,17 @@ const pages = ref({
   pageSize: 20
 })
 const { refresh, pending, data, error } = useGet('GET_BRAND_LIST', pages.value)
-
+interface TableRow {
+  id: number
+  brandName: string
+  logo: string
+  firstName: string
+  createTime: string
+  updateTime: string
+}
 /* 2.表格操作和查询 */
 const multipleSelection = ref([])
-const handleSelectionChange = (val) => {
-  multipleSelection.value = val
-}
+
 const searchForm = reactive({
   id: '',
   name: '',
@@ -164,54 +157,14 @@ onMounted(() => {
 const createTime = ref('')
 
 const searchBtnClick = () => {
+  pages.value.pageNum = 1
   refresh()
 }
 
-const dateTimePacking = () => {}
-// 删除相关
-const refuserTable = ref(null)
-const multiDelBtnClick = () => {
-  let rowDeleteIdArr = []
-  let deleteNameTitle = ''
-  rowDeleteIdArr = multipleSelection.value.map((mItem) => {
-    deleteNameTitle = deleteNameTitle + mItem.name + ','
-    return mItem.id
-  })
-  if (rowDeleteIdArr.length === 0) {
-    return
-  }
-  const stringLength = deleteNameTitle.length - 1
-  ElMessageBox({
-    title: 'Deletion',
-    message: `您确定要删除【${deleteNameTitle.slice(0, stringLength)}】吗`
-  })
-    .then(() => {})
-    .catch(() => {})
-}
-const deleteByIdReq = (id) => {}
-const tableDelClick = (row) => {}
-// 添加和修改
-const showFrom = ref(false)
-const refCRUDForm = ref(null)
-const addBtnClick = () => {
-  showFrom.value = true
-  nextTick(() => {})
-}
-onMounted(() => {
-  console.log('import', import.meta.env.VITE_APP_IMAGE_URL)
-})
-const hideComp = () => {
-  showFrom.value = false
-}
-const tableEditClick = (row) => {}
-/* 3.详情modal */
-const detailData = ref({})
-const dialogTitle = ref('')
-const detailDialog = ref(false)
-const tableDetailClick = (row) => {
-  dialogTitle.value = `详情【${row.name}】`
-}
-const getDetailByIdReq = (id) => {}
+const edit = (row: TableRow) => {}
+const changeDate = () => {}
+const detail = (row: TableRow) => {}
+const dedelte = (row: TableRow) => {}
 </script>
 
 <style scoped lang="scss">

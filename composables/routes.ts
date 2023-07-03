@@ -18,7 +18,14 @@ const defaultRoutes: CustomRoute[] = [
   {
     path: "/richtext",
     meta: {
-      title: "Rich Text",
+      title: "Richtext Editor",
+    },
+    icon: "Tickets",
+  },
+  {
+    path: "/codemirror",
+    meta: {
+      title: "Markdown Editor",
     },
     icon: "Tickets",
   },
@@ -30,9 +37,16 @@ const defaultRoutes: CustomRoute[] = [
     icon: "Tickets",
   },
   {
-    path: "/table-column",
+    path: "/form",
     meta: {
-      title: "Table Columns Style",
+      title: "Form Validation",
+    },
+    icon: "Tickets",
+  },
+  {
+    path: "/utilities",
+    meta: {
+      title: "Use Utilities",
     },
     icon: "Tickets",
   },
@@ -44,25 +58,25 @@ const defaultRoutes: CustomRoute[] = [
     icon: "Coin",
     children: [
       {
-        path: "/nested",
+        path: "/one",
         meta: {
           title: "1 - 1",
         },
       },
       {
-        path: "/nested",
+        path: "/two",
         meta: {
           title: "1 - 2",
         },
         children: [
           {
-            path: "/nested",
+            path: "/one",
             meta: {
               title: "1 - 2 - 1",
             },
           },
           {
-            path: "/nested",
+            path: "/two",
             meta: {
               title: "1 - 2 - 2",
             },

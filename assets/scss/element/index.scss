@@ -82,7 +82,7 @@ html.dark{
   }
 }
 .el-sub-menu[aria-expanded="true"]{
-  .el-sub-menu__title{
+  &>.el-sub-menu__title{
     background-color: rgba(208, 159, 230, .5);
     border-radius: 8px;
   }

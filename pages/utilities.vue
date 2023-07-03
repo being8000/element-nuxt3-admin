@@ -1,12 +1,16 @@
 <template>
   <div>
     <EleTableSticker>
-      <el-table :data="tableData" stripe style="width: 100%">
+      <el-table border :data="tableData" stripe style="width: 100%">
         <el-table-column prop="amount" label="Amount">
-          {{ toThousand(2000) }}
+          <template #default="{ row }">
+            {{ toThousand(row.amount) }}
+          </template>
         </el-table-column>
-        <el-table-column prop="amount" label="Amount">
-          {{ toThousand(2055500.65564) }}
+        <el-table-column prop="amount" label="Amount2">
+          <template #default="{ row }">
+            {{ toThousand(row.amount, false, 3) }}
+          </template>
         </el-table-column>
         <el-table-column prop="date" label="Date" width="180">
           <template #default="{ row }">
@@ -25,6 +29,7 @@ const tableData = [
   {
     date: '2016-05-03',
     name: 'Tom',
+    amount: '888888.888888',
     address: 'No. 189, Grove St, Los Angeles'
   }
 ]
