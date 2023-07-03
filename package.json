@@ -41,6 +41,7 @@
     "marked-highlight": "^2.0.1",
     "mockjs": "^1.1.0",
     "moment": "^2.29.4",
+    "next-auth": "^4.22.1",
     "prettier": "^2.8.8",
     "sass": "^1.63.6",
     "vue-codemirror": "^6.1.1",

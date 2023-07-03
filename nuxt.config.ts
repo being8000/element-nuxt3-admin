@@ -23,7 +23,6 @@ export default defineNuxtConfig({
     "nuxt-icon",
   ],
   auth: {
-    origin: process.env.ORIGIN,
     provider: {
       type: "authjs",
     },
