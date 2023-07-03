@@ -2,7 +2,7 @@
   "name": "nuxt-app",
   "private": true,
   "scripts": {
-    "build": "nuxt build --dotenv .env",
+    "build": "nuxt build",
     "build:sit": "nuxt build --dotenv .env.sit",
     "build:uat": "nuxt build --dotenv .env.uat",
     "build:prod": "nuxt build  --dotenv .env.production",
