@@ -14,11 +14,6 @@ export default defineNuxtConfig({
       STRAPI_BASE_URL: process.env.STRAPI_BASE_URL,
     },
     public: {},
-    auth: {
-      computed: {
-        origin: process.env.ORIGIN,
-      },
-    },
   },
   modules: [
     "@nuxtjs/tailwindcss",
