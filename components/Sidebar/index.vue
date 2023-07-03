@@ -42,7 +42,7 @@
         line-height: 50px;
       "
       class="text-white font-semibold text-xl text-center cursor-pointer left-0"
-      @click="logout"
+      @click="signOut"
     >
       Logout
     </div>
@@ -52,6 +52,7 @@
 <script setup lang="ts">
 const routes = useRoutes()
 const route = useRoute()
+const { signOut } = useAuth()
 const logout = () => {
   // useLogout()
 }

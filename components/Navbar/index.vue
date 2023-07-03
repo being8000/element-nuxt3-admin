@@ -16,9 +16,7 @@
         </el-button-group>
 
         <el-breadcrumb separator="/" class="mx-3">
-          <el-breadcrumb-item :to="{ path: './page-header.html' }">
-            Home
-          </el-breadcrumb-item>
+          <el-breadcrumb-item :to="{ path: '/' }"> Home </el-breadcrumb-item>
           <el-breadcrumb-item
             ><a href="./page-header.html">route 1</a></el-breadcrumb-item
           >

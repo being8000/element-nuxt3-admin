@@ -6,8 +6,11 @@
 </template>
 <script setup lang="ts">
 const { status } = useAuth()
-
+const route = useRoute()
 const layouts = computed(() => {
-  return status.value === 'authenticated' ? 'backoffice' : ''
+  if (status.value === 'authenticated' && route.path != '/login') {
+    return 'backoffice'
+  }
+  return ''
 })
 </script>
