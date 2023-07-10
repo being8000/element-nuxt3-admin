@@ -1,5 +1,5 @@
 <template>
-  <div class="scroll-y">
+  <div class="scroll-y" ref="el">
     <!--操作-->
     <div class="mr-3 py-3">
       <el-button type="primary" @click="addBtnClick">
@@ -53,7 +53,8 @@
         ref="refuserTable"
         border
         :data="data?.records || []"
-        @selection-change="handleSelectionChange"
+        :scrollbar-always-on="true"
+        @selection-change="() => {}"
       >
         <el-table-column type="selection" align="center" width="50" />
         <el-table-column align="center" prop="id" label="ID" width="80" />
@@ -107,25 +108,24 @@
       </el-table>
     </EleTableSticker>
     <!--分页-->
-    <el-affix position="bottom" :offset="0" z-index="5">
-      <el-card :body-style="{ padding: '8px' }">
-        <el-pagination
-          v-model:current-page="pages.pageNum"
-          v-model:page-size="pages.pageSize"
-          :page-sizes="[10, 20, 30, 40, 50, 100, 200]"
-          :background="true"
-          layout="total, sizes, prev, pager, next, jumper"
-          :total="data?.total || 0"
-          @size-change="() => refresh"
-          @current-change="() => refresh"
-        />
-      </el-card>
-    </el-affix>
+    <ElePaginationStiker>
+      <el-pagination
+        v-model:current-page="pages.pageNum"
+        v-model:page-size="pages.pageSize"
+        :page-sizes="[10, 20, 30, 40, 50, 100, 200]"
+        :background="true"
+        layout="total, sizes, prev, pager, next, jumper"
+        :total="data?.total || 0"
+        @size-change="() => refresh"
+        @current-change="() => refresh"
+      />
+    </ElePaginationStiker>
   </div>
 </template>
 
 <script setup lang="ts">
 import { Delete, FolderAdd } from '@element-plus/icons-vue'
+import { useWindowScroll } from '@vueuse/core'
 const pages = ref({
   pageNum: 1,
   pageSize: 20
@@ -165,6 +165,10 @@ const edit = (row: TableRow) => {}
 const changeDate = () => {}
 const detail = (row: TableRow) => {}
 const dedelte = (row: TableRow) => {}
+const el = ref<HTMLElement | null>()
+onMounted(() => {
+  el.value = document.body
+})
 </script>
 
 <style scoped lang="scss">
@@ -184,7 +188,3 @@ const dedelte = (row: TableRow) => {}
   font-size: 16px;
 }
 </style>
-
-function useGet(arg0: string, value: { pageNum: number; pageSize: number }): {
-refresh: any; pending: any; data: any; error: any } { throw new Error('Function
-not implemented.') }

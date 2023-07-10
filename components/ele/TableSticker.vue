@@ -5,6 +5,9 @@
 </template>
 
 <script setup lang="ts">
+import { useMouse } from '@vueuse/core'
+
+const { x, y, sourceType } = useMouse()
 interface StickyItem {
   $el: HTMLElement
   rect: DOMRect

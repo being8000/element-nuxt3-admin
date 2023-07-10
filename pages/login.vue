@@ -24,6 +24,13 @@
         </div>
       </div>
       <section class="max-w-6xl m-auto w-full">
+        <div class="text-right py-3">
+          <nuxt-link
+            :external="true"
+            to="https://github.com/being8000/element-nuxt3-admin"
+            ><Icon name="mdi:github" size="25px" color="white"></Icon
+          ></nuxt-link>
+        </div>
         <div
           class="flex backdrop-blur items-center rounded-sm overflow-hidden h-[350px]"
         >
