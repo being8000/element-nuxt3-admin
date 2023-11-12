@@ -20,6 +20,7 @@ export default defineNuxtConfig({
     "@nuxtjs/color-mode",
     "@element-plus/nuxt",
     "@sidebase/nuxt-auth",
+    "@vueuse/motion/nuxt",
     "nuxt-icon",
   ],
   auth: {

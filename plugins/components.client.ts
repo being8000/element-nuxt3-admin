@@ -3,6 +3,7 @@ import { marked } from "marked";
 import { markedHighlight } from "marked-highlight";
 import hljs from "highlight.js";
 import { CopyIcon } from "~/utils/copy";
+
 export default defineNuxtPlugin((nuxtApp) => {
   marked.use({
     async: true,

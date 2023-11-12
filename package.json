@@ -31,6 +31,7 @@
     "@codemirror/theme-one-dark": "^6.1.2",
     "@tinymce/tinymce-vue": "^4.0.7",
     "@types/marked": "^5.0.0",
+    "@vueuse/motion": "^2.0.0",
     "apexcharts": "^3.41.0",
     "codemirror": "^6.0.1",
     "eslint": "^8.43.0",
