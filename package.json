@@ -16,7 +16,7 @@
     "@nuxt/devtools": "latest",
     "@nuxt/types": "^2.17.0",
     "@nuxtjs/color-mode": "^3.3.0",
-    "@nuxtjs/tailwindcss": "^6.8.0",
+    "@nuxtjs/tailwindcss": "^6.9.4",
     "@sidebase/nuxt-auth": "^0.6.0-beta.3",
     "@tailwindcss/typography": "^0.5.9",
     "@types/node": "^18",
